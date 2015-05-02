@@ -1,7 +1,13 @@
 {
   "name": "tranqil-spaces",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "lodash": "2.4.x",
     "jquery": "2.1.x",
