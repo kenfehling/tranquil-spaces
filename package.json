@@ -9,6 +9,8 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "express": "4.x",
+    "serve-favicon": "2.1.x",
     "lodash": "2.4.x",
     "jquery": "2.1.x",
     "grunt": "*",

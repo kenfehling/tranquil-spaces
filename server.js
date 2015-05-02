@@ -4,20 +4,21 @@
  */
 
 /*jshint strict: true */
-/*global require, module, process, __dirname */
+/*global require, module, process, __dirname, console */
 
 var express = require('express');
 var favicon = require('serve-favicon');
 
-var apiHost = getApiHost();
-var staticDir = getStaticDir();
-
 var app = express();
-app.use(favicon(__dirname + staticDir + '/favicon.ico'));
-app.use(express.static(path.join(__dirname, staticDir)));
+app.use(favicon(__dirname + '/favicon.ico'));
+app.use(express.static(__dirname));
 
 var router = express.Router();
 router.route('/').get(function(req, res) {
     "use strict";
-    res.sendFile(staticDir + '/index.html', { root: __dirname});
+    res.sendFile('/index.html', { root: __dirname});
 });
+
+var port = process.env.PORT || 5000;
+console.log("Serving on port " + port);
+app.listen(port);
