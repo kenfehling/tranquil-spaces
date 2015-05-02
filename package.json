@@ -1,0 +1,31 @@
+{
+  "name": "tranqil-spaces",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "lodash": "2.4.x",
+    "jquery": "2.1.x",
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-browserify": "*",
+    "pubsub-js": "1.5.x"
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "devDependencies": {
+    "almond": "^0.3.0",
+    "amdefine": ">=0.1.0",
+    "require-uncached": "^1.0.2",
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3",
+    "browserify-shim": "~3.2.0"
+  }
+}
