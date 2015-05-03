@@ -36,6 +36,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.registerTask('heroku:production', 'browserify');
-    grunt.registerTask('heroku:production', 'sass');
+    grunt.registerTask('heroku:production', ['browserify', 'sass']);
 };
