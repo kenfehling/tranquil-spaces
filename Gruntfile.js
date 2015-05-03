@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
-            files: ['app/js/*.js'],
-            tasks: ['browserify']
+            files: ['app/js/*', 'app/css/*' ],
+            tasks: ['browserify', 'sass']
         },
         browserify: {
             options: {
@@ -17,7 +17,17 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'public/bundle.js': ['app/js/*.js']
+                    'public/build/bundle.js': ['app/js/*.js']
+                }
+            }
+        },
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'public/build/style.css': 'app/css/main.scss'
                 }
             }
         }
@@ -25,4 +35,5 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-sass');
 };

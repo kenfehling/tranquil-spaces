@@ -27,4 +27,6 @@ build/Release
 node_modules
 
 .idea
-public/bundle.js
+public/build
+
+public/build/bundle.js
