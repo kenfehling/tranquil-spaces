@@ -8,6 +8,7 @@ var obj = {};
 var options = {
     center: constants.MAP.CENTER,
     zoom: constants.MAP.ZOOM,
+    mapTypeId: google.maps.MapTypeId.HYBRID,
     zoomControl: false,
     scaleControl: false,
     streetViewControl: false
