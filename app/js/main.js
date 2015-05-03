@@ -19,12 +19,10 @@ $(function() {
 
 function showStartPoint() {
     "use strict";
-
     gmaps.addMarker({
         position: constants.MAP.START_POINT,
-        icon: 'green_flag',
+        icon: 'red_flag',
         title: 'Start point',
         text: 'Walk here to start the tour.'
     });
-
 }
