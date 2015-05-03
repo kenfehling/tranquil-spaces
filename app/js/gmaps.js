@@ -7,7 +7,7 @@ var util = require('./util');
 var obj = {};
 
 var options = {
-    center: constants.MAP.CENTER,
+    center: constants.MAP.DEFAULT_CENTER,
     zoom: constants.MAP.ZOOM,
     mapTypeId: google.maps.MapTypeId.HYBRID,
     zoomControl: false,

@@ -64,6 +64,4 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     pubsub.subscribe(constants.EVENT.ENTERED_START, enteredStart);
     pubsub.subscribe(constants.EVENT.ENTERED_END, enteredEnd);
     pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
-
-    enteredStart();
 });
