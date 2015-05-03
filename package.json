@@ -2,6 +2,7 @@
   "name": "tranqil-spaces",
   "version": "0.0.1",
   "private": false,
+  "repository": "https://github.com/kenfehling/tranquil-spaces.git",
   "scripts": {
     "start": "node server.js"
   },
