@@ -3,6 +3,7 @@
 
 var pubsub = require('pubsub-js');
 var constants = require('./constants');
+var util = require('./util');
 var obj = {};
 
 var options = {
@@ -22,17 +23,24 @@ google.maps.event.addDomListener(window, 'load', function() {
         var position = options.position;
         var icon = options.icon;
         var title = options.title;
-        var text = options.text;
+        var content = options.content;
         var marker = new google.maps.Marker({
             position: position,
             map: map,
             title: title,
-            icon: "img/" + icon + ".png"
+            icon: util.icon(icon)
         });
-        var infowindow = new google.maps.InfoWindow({ content: text });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-        });
+        var infoWindow = new google.maps.InfoWindow({ content: content });
+        marker.open = function() {
+            infoWindow.open(map, marker);
+        };
+        marker.close = function() {
+            infoWindow.close();
+        };
+        marker.setContent = function(t) {
+            infoWindow.content = t;
+        };
+        google.maps.event.addListener(marker, 'click', marker.open);
         return marker;
     };
 });

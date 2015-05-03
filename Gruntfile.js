@@ -10,6 +10,11 @@ module.exports = function(grunt) {
             tasks: ['browserify']
         },
         browserify: {
+            options: {
+                browserifyOptions: {
+                    debug: true
+                }
+            },
             dist: {
                 files: {
                     'public/bundle.js': ['app/js/*.js']
