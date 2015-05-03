@@ -74,7 +74,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     function menuInfoPressed() {
         alert(
             "Concept and audio by Monica Bello\n\n" +
-            "App developed by Ken Fehling\n"
+            "App developed by Ken Fehling"
         );
     }
 
