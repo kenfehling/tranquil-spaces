@@ -1,5 +1,5 @@
 /*jshint strict: true */
-/*global require, google */
+/*global require, google, alert */
 
 var $ = require('jquery');
 var _ = require('lodash');
@@ -61,7 +61,27 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
         }
     }
 
+    function menuLocationPressed() {
+        var pos = locationMarker.position;
+        gmaps.setCenter(pos.lat(), pos.lng());
+    }
+
+    function menuFlagPressed() {
+        var pos = startMarker.position;
+        gmaps.setCenter(pos.lat(), pos.lng());
+    }
+
+    function menuInfoPressed() {
+        alert(
+            "Concept and audio by Monica Bello\n\n" +
+            "App developed by Ken Fehling\n"
+        );
+    }
+
     pubsub.subscribe(constants.EVENT.ENTERED_START, enteredStart);
     pubsub.subscribe(constants.EVENT.ENTERED_END, enteredEnd);
     pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
+    pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
+    pubsub.subscribe(constants.MENU.FLAG, menuFlagPressed);
+    pubsub.subscribe(constants.MENU.INFO, menuInfoPressed);
 });

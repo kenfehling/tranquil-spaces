@@ -1,6 +1,38 @@
+$menu-height: 36px;
+$menu-v-padding: 12px;
+$menu-h-padding: 12px;
+$menu-item-size: $menu-height - $menu-v-padding;
+
 html, body, #map-canvas {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: white;
+}
+
+#map-canvas {
+	z-index: 1;
+}
+
+#menu {
+	background: #F8F8F8;
+	height: $menu-item-size;
+	padding: ($menu-v-padding - 6) 0 $menu-v-padding 0;
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	table {
+		margin: 0;
+		padding: 0 $menu-h-padding 0 33%;
+		width: 100%;
+		td {
+			width: 33%;
+			text-align: right;
+			img {
+				cursor: pointer;
+				width: $menu-item-size;
+				height: $menu-item-size;
+			}
+		}
+	}
 }

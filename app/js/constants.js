@@ -9,6 +9,11 @@ var constants = {
         END_POINT: { lat: 40.921641, lng: -73.123224 }
     },
     LOCATION_THRESHOLD_DEGREES: 0.0001,
+    MENU: {
+        LOCATION: 'menu_loc',
+        FLAG: 'menu_flag',
+        INFO: 'menu_info'
+    },
     EVENT: {
         MAP_LOADED: 'map_loaded',
         LOCATION_MOVED: 'loc_moved',

@@ -43,6 +43,9 @@ google.maps.event.addDomListener(window, 'load', function() {
         google.maps.event.addListener(marker, 'click', marker.open);
         return marker;
     };
+    obj.setCenter = function(lat, lng) {
+        map.setCenter(new google.maps.LatLng(lat, lng));
+    };
 });
 
 module.exports = obj;
