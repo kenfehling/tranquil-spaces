@@ -40,6 +40,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
                 title: 'Your location',
                 content: 'Your location'
             });
+            gmaps.setCenter(loc.latitude, loc.longitude);
         }
     }
 
