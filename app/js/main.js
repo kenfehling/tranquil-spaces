@@ -31,7 +31,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     function locationMoved(msg, loc) {
         var latlng = new google.maps.LatLng(loc.latitude, loc.longitude);
         if (locationMarker) {
-            locationMarker.position = latlng;
+            locationMarker.setPosition(latlng);
         }
         else {
             locationMarker = gmaps.addMarker({

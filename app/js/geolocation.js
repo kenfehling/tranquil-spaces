@@ -15,12 +15,12 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
             maximumAge: 4000, //should be default, just in case
             timeout: constants.GPS_UPDATE_INTERVAL
         };
-        //geo.watchPosition(onLocationUpdated, onError, options);
-        var f = function () {
-            geo.getCurrentPosition(onLocationUpdated, onError, options);
-        };
-        f();
-        setInterval(f, constants.GPS_UPDATE_INTERVAL);
+        geo.watchPosition(onLocationUpdated, onError, options);
+        //var f = function () {
+        //    geo.getCurrentPosition(onLocationUpdated, onError, options);
+        //};
+        //f();
+        //setInterval(f, constants.GPS_UPDATE_INTERVAL);
     }
     else {
         alert("This browser doesn't support GPS.");
