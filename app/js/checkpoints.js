@@ -14,7 +14,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
 
 function checkpointReached(index) {
     "use strict";
-    markers[index].icon = util.icon("green_flag");
+    markers[index].setIcon(util.icon("green_flag"));
     if (index >= constants.CHECKPOINTS.length - 1) {
         nextCheckpoint = 0;
     }
@@ -22,6 +22,7 @@ function checkpointReached(index) {
         nextCheckpoint = index + 1;
         setupNextCheckpoint();
     }
+    pubsub.publish(constants.EVENT.CHECKPOINT_REACHED, index);
 }
 
 function createMarkerContent(text, buttonText, buttonOnClick) {

@@ -4,7 +4,12 @@ var pubsub = require('pubsub-js');
 var util = require('./util');
 var constants = require('./constants');
 
-pubsub.subscribe(constants.EVENT.CHECKPOINT_REACHED, function(msg, index) {
+$(function() {
     "use strict";
     var audio = $('audio').get()[0];
+
+    pubsub.subscribe(constants.EVENT.CHECKPOINT_REACHED, function(msg, index) {
+        audio.src = "audio/narration.mp3";
+        audio.play();
+    });
 });
