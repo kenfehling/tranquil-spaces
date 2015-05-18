@@ -3,8 +3,7 @@
  * Author: Ken Fehling
  */
 
-/*jshint strict: true */
-/*global require, module, process, __dirname, console */
+/*global process, __dirname, console */
 
 var express = require('express');
 var favicon = require('serve-favicon');

@@ -1,6 +1,3 @@
-/*jshint strict: true */
-/*global require, google, alert */
-
 var $ = require('jquery');
 var _ = require('lodash');
 var gmaps = require('./gmaps');
@@ -10,26 +7,10 @@ var util = require('./util');
 
 pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     "use strict";
-    var audio = $('audio').get()[0];
-    var startedWalk = false;
     var locationMarker;
 
-    var startButton = document.createElement('button');
-    var $startButton = $(startButton);
-    $startButton.text('Start walk');
-    $startButton.click(function() {
-        audio.play();
-    });
-
-    var startMarker = gmaps.addMarker({
-        position: constants.MAP.START_POINT,
-        icon: 'red_flag',
-        title: 'Start point',
-        content: 'Walk here to start the tour.'
-    });
-
     function locationMoved(msg, loc) {
-        var latlng = new google.maps.LatLng(loc.latitude, loc.longitude);
+        var latlng = new google.maps.LatLng(loc.lat, loc.lng);
         if (locationMarker) {
             locationMarker.setPosition(latlng);
         }
@@ -40,25 +21,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
                 title: 'Your location',
                 content: 'Your location'
             });
-            gmaps.setCenter(loc.latitude, loc.longitude);
-        }
-    }
-
-    function enteredStart() {
-        if (!startedWalk) {
-            startMarker.icon = util.icon("green_flag");
-            startMarker.close();
-            startMarker.setContent(startButton);
-            startMarker.open();
-            startedWalk = true;
-        }
-    }
-
-    function enteredEnd() {
-        if (startedWalk) {
-            locationMarker.setContent("You've finished the walk.");
-            locationMarker.open();
-            startedWalk = false;
+            gmaps.setCenter(loc.lat, loc.lng);
         }
     }
 
@@ -77,10 +40,9 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
             "Concept and audio by Monica Bello\n\n" +
             "App developed by Ken Fehling"
         );
+        //https://github.com/kenfehling/tranquil-spaces
     }
 
-    pubsub.subscribe(constants.EVENT.ENTERED_START, enteredStart);
-    pubsub.subscribe(constants.EVENT.ENTERED_END, enteredEnd);
     pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
     pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
     pubsub.subscribe(constants.MENU.FLAG, menuFlagPressed);

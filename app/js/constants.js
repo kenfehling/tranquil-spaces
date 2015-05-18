@@ -1,13 +1,15 @@
-/*jshint strict: true */
-/*global module */
+var _ = require('lodash');
 
 var constants = {
     MAP: {
         DEFAULT_CENTER: { lat: 40.915, lng: -73.1234 },
-        ZOOM: 17,
-        START_POINT: { lat: 40.917410, lng: -73.122160 },
-        END_POINT: { lat: 40.921641, lng: -73.123224 }
+        ZOOM: 17
     },
+    CHECKPOINTS: [
+        { lat: 40.917410,  lng: -73.122160 },
+
+        { lat: 40.921641, lng: -73.123224 }
+    ],
     LOCATION_THRESHOLD_DEGREES: 0.0001,
     GPS_UPDATE_INTERVAL: 5000,
     MENU: {
@@ -18,8 +20,7 @@ var constants = {
     EVENT: {
         MAP_LOADED: 'map_loaded',
         LOCATION_MOVED: 'loc_moved',
-        ENTERED_START: 'enter_start',
-        ENTERED_END: 'enter_start'
+        CHECKPOINT_REACHED: 'cp_reach'
     }
 };
 module.exports = constants;

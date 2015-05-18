@@ -1,5 +1,4 @@
-/*jshint strict: true */
-/*global require, google, module */
+/*global google */
 
 var pubsub = require('pubsub-js');
 var constants = require('./constants');
@@ -17,7 +16,6 @@ var options = {
 google.maps.event.addDomListener(window, 'load', function() {
     "use strict";
     var map = new google.maps.Map(document.getElementById('map-canvas'), options);
-    pubsub.publish(constants.EVENT.MAP_LOADED, map);
     obj.map = map;
     obj.addMarker = function(options) {
         var position = options.position;
@@ -46,6 +44,7 @@ google.maps.event.addDomListener(window, 'load', function() {
     obj.setCenter = function(lat, lng) {
         map.setCenter(new google.maps.LatLng(lat, lng));
     };
+    pubsub.publish(constants.EVENT.MAP_LOADED, map);
 });
 
 module.exports = obj;
