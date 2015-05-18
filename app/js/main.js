@@ -30,11 +30,6 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
         gmaps.setCenter(pos.lat(), pos.lng());
     }
 
-    function menuFlagPressed() {
-        var pos = startMarker.position;
-        gmaps.setCenter(pos.lat(), pos.lng());
-    }
-
     function menuInfoPressed() {
         alert(
             "Concept and audio by Monica Bello\n\n" +
@@ -45,6 +40,5 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
 
     pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
     pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
-    pubsub.subscribe(constants.MENU.FLAG, menuFlagPressed);
     pubsub.subscribe(constants.MENU.INFO, menuInfoPressed);
 });

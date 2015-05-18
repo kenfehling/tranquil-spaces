@@ -53,9 +53,14 @@ function setupNextCheckpoint() {
 
 pubsub.subscribe(constants.EVENT.LOCATION_MOVED, function(msg, location) {
     "use strict";
-
     var checkpoint = constants.CHECKPOINTS[nextCheckpoint];
     if (util.areClose(location, checkpoint)) {
         checkpointReached(nextCheckpoint);
     }
+});
+
+pubsub.subscribe(constants.MENU.FLAG, function() {
+    "use strict";
+    var pos = markers[nextCheckpoint].position;
+    gmaps.setCenter(pos.lat(), pos.lng());
 });
