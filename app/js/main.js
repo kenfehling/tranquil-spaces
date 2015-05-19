@@ -5,6 +5,7 @@ var gmaps = require('./gmaps');
 var pubsub = require('pubsub-js');
 var constants = require('./constants');
 var util = require('./util');
+var infoNoty;
 
 $(function() {
     "use strict";
@@ -36,18 +37,36 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
         gmaps.setCenter(pos.lat(), pos.lng());
     }
 
-    function menuInfoPressed() {
-        alert(
-            "Concept and audio by Monica Bello\n\n" +
-            "App developed by Ken Fehling"
-        );
-        //https://github.com/kenfehling/tranquil-spaces
-    }
-
     pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
     pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
     pubsub.subscribe(constants.MENU.INFO, menuInfoPressed);
 });
+
+function menuInfoPressed() {
+    "use strict";
+    if (infoNoty) {
+        infoNoty.close();
+        infoNoty = null;
+    }
+    else {
+        var div = document.createElement('div');
+        var $div = $(div);
+        var $github = $(document.createElement('a'));
+        $github.attr('href', 'http://github.com/kenfehling/tranquil-spaces');
+        $github.text('GitHub');
+        $github.attr('target', '_blank');
+        $div.addClass("notification");
+        $div.append("<p>Concept and narration by Monica Bello</p>");
+        $div.append("<p>App developed by Ken Fehling</p>");
+        $div.append($github);
+        $div.append("<br><br>");
+        infoNoty = noty({
+            text: div,
+            type: 'alert',
+            layout: 'center'
+        });
+    }
+}
 
 function showIntro() {
     "use strict";
