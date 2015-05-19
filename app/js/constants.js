@@ -20,6 +20,7 @@ var constants = {
     EVENT: {
         MAP_LOADED: 'map_loaded',
         LOCATION_MOVED: 'loc_moved',
+        INTRO: 'intro',
         CHECKPOINT_REACHED: 'cp_reach'
     }
 };

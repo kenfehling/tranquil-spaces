@@ -11,19 +11,17 @@
   },
   "dependencies": {
     "express": "4.x",
-    "serve-favicon": "2.1.x",
-    "lodash": "2.4.x",
     "jquery": "2.1.x",
-    "pubsub-js": "1.5.x"
+    "lodash": "2.4.x",
+    "noty": "^2.3.5",
+    "pubsub-js": "1.5.x",
+    "serve-favicon": "2.1.x"
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.min.js"
   },
   "browserify-shim": {
     "jquery": "$"
-  },
-  "browserify": {
-    "transform": [ "browserify-shim" ]
   },
   "devDependencies": {
     "almond": "^0.3.0",

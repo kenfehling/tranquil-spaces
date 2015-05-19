@@ -1,9 +1,15 @@
 var $ = require('jquery');
 var _ = require('lodash');
+var noty = require('noty');
 var gmaps = require('./gmaps');
 var pubsub = require('pubsub-js');
 var constants = require('./constants');
 var util = require('./util');
+
+$(function() {
+    "use strict";
+    showIntro();   //stranged
+});
 
 pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     "use strict";
@@ -42,3 +48,15 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
     pubsub.subscribe(constants.MENU.INFO, menuInfoPressed);
 });
+
+function showIntro() {
+    "use strict";
+    noty({
+        text: "Welcome to the tranquil places soundwalk.<br><br>Press to begin.",
+        type: 'alert',
+        layout: 'center',
+        callback: {
+            onClose: _.bind(pubsub.publish, {}, constants.EVENT.INTRO)
+        }
+    });
+}
