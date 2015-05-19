@@ -47,13 +47,14 @@ function showIntro() {
     var div = document.createElement('div');
     var $div = $(div);
     $div.addClass("notification");
-    $div.html("Welcome to the tranquil places soundwalk.<br><br>Press to begin.");
+    $div.append("<p>Welcome to the tranquil places soundwalk.</p>");
+    $div.append("<p>Press to begin.</p>");
     noty({
         text: div,
         type: 'alert',
         layout: 'center',
         callback: {
-            onClose: _.bind(pubsub.publish, {}, constants.EVENT.INTRO)
+            onClose: _.bind(pubsub.publish, {}, constants.EVENT.INTRO_START)
         }
     });
 }

@@ -60,6 +60,12 @@ function setupNextCheckpoint() {
     setupCheckpoint(nextCheckpoint);
 }
 
+function moveToFlag() {
+    "use strict";
+    var pos = markers[nextCheckpoint].position;
+    gmaps.setCenter(pos.lat(), pos.lng());
+}
+
 pubsub.subscribe(constants.EVENT.LOCATION_MOVED, function(msg, location) {
     "use strict";
     var checkpoint = constants.CHECKPOINTS[nextCheckpoint];
@@ -68,8 +74,5 @@ pubsub.subscribe(constants.EVENT.LOCATION_MOVED, function(msg, location) {
     }
 });
 
-pubsub.subscribe(constants.MENU.FLAG, function() {
-    "use strict";
-    var pos = markers[nextCheckpoint].position;
-    gmaps.setCenter(pos.lat(), pos.lng());
-});
+pubsub.subscribe(constants.MENU.FLAG, moveToFlag);
+pubsub.subscribe(constants.EVENT.INTRO_END, moveToFlag);

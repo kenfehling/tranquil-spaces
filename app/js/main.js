@@ -9,7 +9,7 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     "use strict";
     var locationMarker;
 
-    function locationMoved(msg, loc) {
+    pubsub.subscribe(constants.EVENT.LOCATION_MOVED, function(msg, loc) {
         var latlng = new google.maps.LatLng(loc.lat, loc.lng);
         if (locationMarker) {
             locationMarker.setPosition(latlng);
@@ -23,13 +23,10 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
             });
             gmaps.setCenter(loc.lat, loc.lng);
         }
-    }
+    });
 
-    function menuLocationPressed() {
+    pubsub.subscribe(constants.MENU.LOCATION, function() {
         var pos = locationMarker.position;
         gmaps.setCenter(pos.lat(), pos.lng());
-    }
-
-    pubsub.subscribe(constants.EVENT.LOCATION_MOVED, locationMoved);
-    pubsub.subscribe(constants.MENU.LOCATION, menuLocationPressed);
+    });
 });

@@ -14,6 +14,7 @@ var constants = {
     ],
     LOCATION_THRESHOLD_DEGREES: 0.0001,
     GPS_UPDATE_INTERVAL: 5000,
+    INTRO_PAUSE: 1000,
     MENU: {
         LOCATION: 'menu_loc',
         FLAG: 'menu_flag',
@@ -22,7 +23,8 @@ var constants = {
     EVENT: {
         MAP_LOADED: 'map_loaded',
         LOCATION_MOVED: 'loc_moved',
-        INTRO: 'intro',
+        INTRO_START: 'intro_start',
+        INTRO_END: 'intro_end',
         CHECKPOINT_REACHED: 'cp_reach'
     }
 };
