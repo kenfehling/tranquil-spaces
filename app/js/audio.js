@@ -6,7 +6,7 @@ var constants = require('./constants');
 
 $(function() {
     "use strict";
-    var audio = $('audio').get()[0];
+    var audio = document.createElement('audio');
 
     pubsub.subscribe(constants.EVENT.CHECKPOINT_REACHED, function(msg, index) {
         audio.src = "audio/narration.mp3";

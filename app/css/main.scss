@@ -13,6 +13,18 @@ html, body, #map-canvas {
 	z-index: 1;
 }
 
+button {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.markerInfo {
+	text-align: center;
+	padding-left: 20px;
+	padding-top: 6px;
+	padding-bottom: 8px;
+}
+
 #menu {
 	background: #F8F8F8;
 	height: $menu-item-size;

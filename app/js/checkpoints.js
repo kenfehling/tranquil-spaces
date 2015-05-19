@@ -32,6 +32,7 @@ function createMarkerContent(text, buttonText, buttonOnClick) {
     var $p = $(document.createElement('p'));
     var $button = $(util.button(buttonText, buttonOnClick));
     $p.text(text);
+    $div.addClass("markerInfo");
     $div.append($p);
     $div.append($button);
     return div;
