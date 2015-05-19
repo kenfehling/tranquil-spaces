@@ -51,8 +51,12 @@ pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
 
 function showIntro() {
     "use strict";
+    var div = document.createElement('div');
+    var $div = $(div);
+    $div.addClass("notification");
+    $div.html("Welcome to the tranquil places soundwalk.<br><br>Press to begin.");
     noty({
-        text: "Welcome to the tranquil places soundwalk.<br><br>Press to begin.",
+        text: div,
         type: 'alert',
         layout: 'center',
         callback: {

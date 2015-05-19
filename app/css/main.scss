@@ -9,6 +9,10 @@ html, body, #map-canvas {
 	padding: 0;
 }
 
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 #map-canvas {
 	z-index: 1;
 }
@@ -47,4 +51,9 @@ button {
 			}
 		}
 	}
+}
+
+.notification {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
