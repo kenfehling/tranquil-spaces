@@ -6,8 +6,8 @@ var constants = {
         ZOOM: 17
     },
     CHECKPOINTS: [
-        { lat: 40.917410,  lng: -73.122160 },
-
+        { lat: 40.915627, lng: -73.121555 },
+        { lat: 40.917410, lng: -73.122160 },
         { lat: 40.921641, lng: -73.123224 }
     ],
     LOCATION_THRESHOLD_DEGREES: 0.0001,

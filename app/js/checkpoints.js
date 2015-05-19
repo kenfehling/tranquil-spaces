@@ -9,16 +9,18 @@ var nextCheckpoint = 0;
 
 pubsub.subscribe(constants.EVENT.MAP_LOADED, function() {
     "use strict";
-    setupNextCheckpoint();  // Google sucks!
+    setupNextCheckpoint();
 });
 
 function checkpointReached(index) {
     "use strict";
-    markers[index].setIcon(util.icon("green_flag"));
+    var marker = markers[index];
+    marker.setIcon(util.icon("green_flag"));
     if (index >= constants.CHECKPOINTS.length - 1) {
         nextCheckpoint = 0;
     }
     else {
+        marker.close();
         nextCheckpoint = index + 1;
         setupNextCheckpoint();
     }
@@ -38,10 +40,10 @@ function createMarkerContent(text, buttonText, buttonOnClick) {
     return div;
 }
 
-function setupNextCheckpoint() {
+function setupCheckpoint(index) {
     "use strict";
     var content = createMarkerContent(
-        'Walk here to start the tour.',
+        index === 0 ? 'Walk here to start the tour.' : 'Checkpoint ' + index,
         "I'm here",
         _.bind(checkpointReached, {}, nextCheckpoint)
     );
@@ -51,6 +53,11 @@ function setupNextCheckpoint() {
         content: content
     });
     markers.push(marker);
+}
+
+function setupNextCheckpoint() {
+    "use strict";
+    setupCheckpoint(nextCheckpoint);
 }
 
 pubsub.subscribe(constants.EVENT.LOCATION_MOVED, function(msg, location) {
