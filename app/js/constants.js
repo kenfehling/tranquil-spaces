@@ -1,7 +1,7 @@
 var constants = {
     MAP: {
         DEFAULT_CENTER: { lat: 40.915, lng: -73.1234 },
-        ZOOM: 17
+        ZOOM: 18
     },
     CHECKPOINTS: [
         { lat: 40.915627, lng: -73.121555 },
@@ -10,6 +10,7 @@ var constants = {
         { lat: 40.917718, lng: -73.123742 },
         { lat: 40.919957, lng: -73.123262 },
         { lat: 40.920774, lng: -73.124992 },
+        { lat: 40.921562, lng: -73.124319 },
         { lat: 40.922187, lng: -73.123930 },
         { lat: 40.922470, lng: -73.123981 }
     ],
