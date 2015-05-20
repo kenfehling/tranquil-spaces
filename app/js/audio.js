@@ -11,7 +11,7 @@ $(function() {
 
     pubsub.subscribe(constants.EVENT.INTRO_START, function() {
         audio.src = 'audio/intro.mp3';
-        audio.play();
+        $audio.on('canplaythrough', audio.play);
         $audio.on('ended', onIntroEnd);
         $audio.on('ended', function() {
             pubsub.publish(constants.EVENT.AUDIO_FINISHED);
@@ -28,7 +28,7 @@ $(function() {
         setTimeout(function() {
             pubsub.publish(constants.EVENT.INTRO_END);
             audio.src = 'audio/0.mp3';
-            audio.play();
+            $audio.on('canplaythrough', audio.play);
         }, constants.INTRO_PAUSE);
     }
 });
