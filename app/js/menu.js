@@ -54,7 +54,7 @@ function showIntro() {
         type: 'alert',
         layout: 'center',
         callback: {
-            onClose: _.bind(pubsub.publish, {}, constants.EVENT.INTRO_START)
+            onClose: _.bind(pubsub.publishSync, {}, constants.EVENT.INTRO_START)
         }
     });
 }
