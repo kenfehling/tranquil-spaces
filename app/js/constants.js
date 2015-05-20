@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 var constants = {
     MAP: {
         DEFAULT_CENTER: { lat: 40.915, lng: -73.1234 },
@@ -28,7 +26,8 @@ var constants = {
         LOCATION_MOVED: 'loc_moved',
         INTRO_START: 'intro_start',
         INTRO_END: 'intro_end',
-        CHECKPOINT_REACHED: 'cp_reach'
+        CHECKPOINT_REACHED: 'cp_reach',
+        AUDIO_FINISHED: 'audio_fin'
     }
 };
 module.exports = constants;

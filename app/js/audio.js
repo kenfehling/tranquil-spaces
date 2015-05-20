@@ -13,6 +13,9 @@ $(function() {
         audio.src = 'audio/intro.mp3';
         audio.play();
         $audio.on('ended', onIntroEnd);
+        $audio.on('ended', function() {
+            pubsub.publish(constants.EVENT.AUDIO_FINISHED);
+        });
     });
 
     pubsub.subscribe(constants.EVENT.CHECKPOINT_REACHED, function(msg, index) {
